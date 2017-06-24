@@ -1,7 +1,24 @@
-all: kilo
+BIN = kilo
 
-kilo: kilo.c
-	$(CC) -o kilo kilo.c -Wall -W -pedantic -std=c99
+.PHONY: all build clean rebuild b c reb run r
+
+all: build
+
+build:
+	mkdir -p build
+	cd build && cmake .. && make
+	cp build/$(BIN) ./
 
 clean:
-	rm kilo
+	rm -rf build
+
+rebuild: clean build
+
+run: build
+	./$(BIN)
+
+# aliases
+b: build
+c: clean
+reb: rebuild
+r: run
