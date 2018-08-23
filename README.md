@@ -1,3 +1,5 @@
+SDL2 wrapper for kilo.
+
 Kilo
 ===
 
